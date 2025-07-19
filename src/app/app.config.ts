@@ -11,19 +11,14 @@ import { provideRouter } from '@angular/router';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideFunctions(() => getFunctions()),
-    provideRouter(routes),
-    provideFirebaseApp(() => initializeApp({
-      apiKey: "AIzaSyCltLLnJcPFf9vERjLxEsR3aufsF7ZmqKc",
-      authDomain: "my-tutors-click-v1.firebaseapp.com",
-      projectId: "my-tutors-click-v1",
-      storageBucket: "my-tutors-click-v1.firebasestorage.app",
-      messagingSenderId: "731310160173",
-      appId: "1:731310160173:web:07da70edd8f8e628e17ba4",
-      measurementId: "G-XENC77XNC7"
-    })),
-    provideFirestore(() => getFirestore()),
-    provideMessaging(() => getMessaging()),
-    provideStorage(() => getStorage())
+    importProvidersFrom(
+      provideFirebaseApp(() => initializeApp(environment.firebase)),
+      provideFirestore(() => getFirestore()),
+      provideAuth(() => getAuth()),
+      provideFunctions(() => getFunctions()),
+      provideStorage(() => getStorage()),
+      provideMessaging(() => getMessaging())
+    ),
+    provideRouter(routes)
   ],
 };
