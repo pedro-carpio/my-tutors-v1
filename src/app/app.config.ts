@@ -17,6 +17,14 @@ export const appConfig: ApplicationConfig = {
     provideFunctions(() => getFunctions()),
     provideStorage(() => getStorage()),
     provideMessaging(() => getMessaging()),
-    provideRouter(routes), provideFirebaseApp(() => initializeApp({ projectId: "my-tutors-click-v1", appId: "1:731310160173:web:07da70edd8f8e628e17ba4", storageBucket: "my-tutors-click-v1.firebasestorage.app", apiKey: "AIzaSyCltLLnJcPFf9vERjLxEsR3aufsF7ZmqKc", authDomain: "my-tutors-click-v1.firebaseapp.com", messagingSenderId: "731310160173", measurementId: "G-XENC77XNC7" })), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideMessaging(() => getMessaging()), provideStorage(() => getStorage())
+    provideRouter(routes), provideFirebaseApp(() => initializeApp({
+      apiKey: "AIzaSyCltLLnJcPFf9vERjLxEsR3aufsF7ZmqKc",
+  authDomain: "my-tutors-click-v1.firebaseapp.com",
+  projectId: "my-tutors-click-v1",
+  storageBucket: "my-tutors-click-v1.firebasestorage.app",
+  messagingSenderId: "731310160173",
+  appId: "1:731310160173:web:07da70edd8f8e628e17ba4",
+  measurementId: "G-XENC77XNC7"
+    })), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideMessaging(() => getMessaging()), provideStorage(() => getStorage())
   ],
 };
